@@ -1,6 +1,7 @@
-# MediBot - Autonomus Medicine Delivery And Disinfection Robot
+ # MediBot - Autonomus Medicine Delivery And Disinfection Robot
 MediBot is an autonomous hospital robot designed to reduce nurse fatigue by taking over repetitive medicine delivery and room-disinfection tasks. It minimizes infection risks, shortens staff workload, and ensures safer, faster, and more reliable patient-care operations.
 
+https://www.youtube.com/watch?v=1O8xAjmjDDk
 ## Problem Statement 1:
 Nurses in hospitals frequently perform exhausting and repetitive tasks such as collecting medicines from the pharmacy and delivering them to patient rooms. This constant movement leads to fatigue, reduced efficiency, and increases the likelihood of human errors, which can compromise patient safety. Moreover, frequent direct contact between nurses/doctors and patients increases the chance of transmitting new germs—both from staff to patients and from patients to staff—especially in contagious environments. 
 ![problem11](https://github.com/user-attachments/assets/1bfaf9c1-9117-4fee-9d41-5631c09d2367)
@@ -54,6 +55,7 @@ Link: https://www.digikey.in/en/mylists/list/USJJ9KHIO1
 ![component8](https://github.com/user-attachments/assets/5dd3a2fa-022b-4932-b80d-2dbacbf74fe2)![component 9](https://github.com/user-attachments/assets/0288db60-dfa7-4ce2-aa83-abe89ce3f7a4)
 
 ## Building MediBot:
+![area](https://github.com/user-attachments/assets/90d5fc05-ee0e-49cc-a19a-2e915548bdfd)
 ### Step 1 — Assemble the Robot Chassis
 #### 1.1 Components Required
 
@@ -72,6 +74,7 @@ Screw the holders firmly using M3 screws.
 Attach the Omni wheels to each DG01D motor shaft.
 
 ![WhatsApp Image 2025-11-26 at 221114_6080f05b(0)](https://github.com/user-attachments/assets/26b52cbd-c0e2-4ce6-b823-fd0de6cc8011)
+
 ![WhatsApp Image 2025-11-20 at 093339_67e93bf0](https://github.com/user-attachments/assets/eada0f05-a620-47b4-9c70-034c314e9f36)
 
 #### 1.3 Fix the Top Plate
@@ -88,27 +91,33 @@ Jumper wires
 Common Ground
 
 ### 2.2 Wiring Motor Drivers to ESP32 (Board A)
+
 <img width="747" height="505" alt="image" src="https://github.com/user-attachments/assets/26b9ba98-de10-445e-9fc6-438950139afc" />
 ![ESP32driver board](https://github.com/user-attachments/assets/0fdff685-18f2-46f9-9574-c0ffc3da5673)
 ![Motordriver](https://github.com/user-attachments/assets/01a73445-96a0-46d0-9007-63d4e8aee51b)
 
-After flashing the code type below command in Ros2 terminal to check if ESP32 DEVKITV1 listens to /cmd_vel and drives motors.
 
-**ros2 topic echo /cmd_vel**
-
-### Step 3 — Install Master ESP32 DEVKITV1 (Board B)
+## Step 3 — Install Master ESP32 DEVKITV1 (Board B)
 This board controls:
 
-TM1637 timer
-Servo trigger output
-Disinfection trigger output
-micro-ROS topics:
-/display_number
-/servo_trigger
+1.TM1637 timer
+2.Servo trigger output
+3.Disinfection trigger output
+4.micro-ROS topics:
+    /display_number
+    /servo_trigger
 
-## 3.1 Wiring TM1637
-<img width="743" height="232" alt="image" src="https://github.com/user-attachments/assets/6392edea-cd64-4f2a-b311-0f11eaecf38f" />
-## 3.2 Wiring Control Lines 
-<img width="742" height="143" alt="image" src="https://github.com/user-attachments/assets/58c8fa8f-7e85-44fd-a640-d8904c6c7402" />
-![WhatsApp Image 2025-11-21 at 212029_958ea5cc(0)](https://github.com/user-attachments/assets/66314e16-aaff-45b5-b379-430e382b0651)
+### 3.1 Wiring 
 
+![WhatsApp Image 2025-11-21 at 212938_c5522bef](https://github.com/user-attachments/assets/17aca216-4791-46b1-b78d-08e85926ac5f)
+![WhatsApp Image 2025-11-21 at 212939_08b3bfc4](https://github.com/user-attachments/assets/81c35d65-b4cc-415a-b0ca-b77bfeeafb3e)
+
+Step 5 — Camera & ArUco Setup
+5.1 Mount the Camera
+
+Fix a USB webcam 1.5m–2m above ground.
+Ensure the ArUco marker on robot is always visible.
+5.2 Generate ArUco Marker
+
+You already have one.
+Print at 5cm × 5cm for accurate pose.
