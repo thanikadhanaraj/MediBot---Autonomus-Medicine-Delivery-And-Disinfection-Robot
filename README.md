@@ -8,15 +8,14 @@ Medibot is an embedded-system–based medical assistance robot designed to reduc
 https://www.youtube.com/watch?v=1O8xAjmjDDk
 ## Problem Statement
 
-In hospitals and quarantine zones, frequent human interaction increases the risk of infection and workload on medical staff. A compact, mobile robotic system can assist doctors and nurses by handling routine monitoring and delivery tasks safely and efficiently.
+In hospitals, nurses frequently perform exhausting and repetitive tasks such as medicine collection and delivery, leading to physical fatigue, reduced efficiency, and higher chances of human error. Additionally, frequent human interaction and manual cleaning increase the risk of infection spread, making it difficult to maintain a safe and sterile hospital environment.
 
 ## Solution
 
-1.Medibot is a mobile robot powered by a microcontroller that:
-2.Measures basic health parameters
-3.Moves autonomously or via remote control
-4.Delivers medicines and essentials to patients
-5.Displays sensor data in real time
+
+3.Moves autonomously with instruction from nurse station
+4.Delivers medicines and essentials to patients reducing nurse fatigue
+5.UV disinfection which minimizes human contact, and improving safety and efficiency in hospital environments.
 
 <img width="1024" height="1536" alt="image" src="https://github.com/user-attachments/assets/6a5b7d09-d934-4952-92ba-f195f11282e7" />
 
