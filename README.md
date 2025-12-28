@@ -11,7 +11,6 @@ https://www.youtube.com/watch?v=1O8xAjmjDDk
 In hospitals and quarantine zones, frequent human interaction increases the risk of infection and workload on medical staff. A compact, mobile robotic system can assist doctors and nurses by handling routine monitoring and delivery tasks safely and efficiently.
 
 ## Solution
-<img width="364" height="480" alt="image" src="https://github.com/user-attachments/assets/26b98926-0cc4-4ab9-bd62-e81ddc50354a" />
 
 1.Medibot is a mobile robot powered by a microcontroller that:
 2.Measures basic health parameters
@@ -32,4 +31,3 @@ In hospitals and quarantine zones, frequent human interaction increases the risk
 4.Compact and low-cost design
 5.Easy to deploy in hospitals
 
-<img width="364" height="480" alt="image" src="https://github.com/user-attachments/assets/96ce9e0f-91d7-430b-9f26-3e891424dc3f" />
