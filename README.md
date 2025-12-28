@@ -26,8 +26,12 @@ In hospitals and quarantine zones, frequent human interaction increases the risk
 ## Features
 
 1.Contactless medical delivery
+
 2.Real-time health implementation
+
 3.Wireless control
+
 4.Compact and low-cost design
+
 5.Easy to deploy in hospitals
 
