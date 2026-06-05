@@ -1,0 +1,69 @@
+#include <Arduino.h>
+#include <Adafruit_NeoPixel.h>
+#include <Servo.h>
+
+// Pins (adjust if needed)
+#define RGB_PIN       8    // NeoPixel data pin for slave built-in RGB (as you had)
+#define NUM_PIXELS    1
+#define SIGNAL_PIN    4    // input from master CONTROL_PIN for purple LED (existing)
+#define SERVO_TRIGGER_IN 5 // new input from master for servo trigger
+#define SERVO_PWM_PIN 15   // servo signal pin on the slave
+#define DEBOUNCE_MS   50
+
+Adafruit_NeoPixel pixels(NUM_PIXELS, RGB_PIN, NEO_GRB + NEO_KHZ800);
+Servo myServo;
+
+int last_trigger_state = LOW;
+unsigned long last_trigger_time = 0;
+
+void setColor(uint8_t r, uint8_t g, uint8_t b) {
+  pixels.setPixelColor(0, pixels.Color(r, g, b));
+  pixels.show();
+}
+
+void run_servo_sequence() {
+  Serial.println("[slave] Servo -> 90 deg");
+  myServo.write(90);
+  delay(5000); // keep for 5 seconds
+  Serial.println("[slave] Servo -> 0 deg");
+  myServo.write(0);
+  delay(300);
+}
+
+void setup() {
+  Serial.begin(115200);
+  pixels.begin();
+  pixels.clear();
+  pixels.show();
+
+  pinMode(SIGNAL_PIN, INPUT);         // existing disinfect control input
+  pinMode(SERVO_TRIGGER_IN, INPUT);   // servo trigger input
+
+  myServo.attach(SERVO_PWM_PIN);
+  myServo.write(0); // home position
+
+  Serial.println("[slave] Ready. SIGNAL_PIN and SERVO_TRIGGER_IN configured.");
+}
+
+void loop() {
+  // Purple LED logic: set purple while CONTROL_PIN (master) is HIGH
+  int disinfectState = digitalRead(SIGNAL_PIN);
+  if (disinfectState == HIGH) {
+    setColor(128, 0, 128);  // Purple
+  } else {
+    // If you want the LED to be off by default:
+    setColor(0, 0, 0);
+  }
+
+  // Detect rising edge on SERVO_TRIGGER_IN
+  int trig = digitalRead(SERVO_TRIGGER_IN);
+  unsigned long now = millis();
+  if (trig == HIGH && last_trigger_state == LOW && (now - last_trigger_time) > DEBOUNCE_MS) {
+    Serial.println("[slave] Rising edge detected -> executing servo");
+    last_trigger_time = now;
+    run_servo_sequence();
+  }
+  last_trigger_state = trig;
+
+  delay(10);
+}
